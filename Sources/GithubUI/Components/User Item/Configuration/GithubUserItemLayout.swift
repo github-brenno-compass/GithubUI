@@ -1,6 +1,6 @@
 //
 //  GithubUserItemLayout.swift
-//  
+//
 //
 //  Created by Brenno on 03/06/23.
 //
@@ -18,7 +18,7 @@ public struct GithubUserItemLayout: EditableObject {
     fileprivate(set) var usernameColor: Color = .secondary
 
     fileprivate(set) var accessoryColor: Color = .secondary
-    
+
     public init() {}
 }
 

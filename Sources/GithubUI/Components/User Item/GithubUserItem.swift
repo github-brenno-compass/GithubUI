@@ -1,6 +1,6 @@
 //
 //  GithubUserItem.swift
-//  
+//
 //
 //  Created by Brenno on 03/06/23.
 //
@@ -85,7 +85,11 @@ struct GithubUserItem_Previews: PreviewProvider {
         GithubUserItem(
             title: "Brenno",
             username: "brennobemoura",
-            description: "Swift developer with a passion for technology and a focus on declarative programming, experience in challenging projects and multidisciplinary teams.",
+            description: """
+                Swift developer with a passion for technology and a focus on \
+                declarative programming, experience in challenging projects \
+                and multidisciplinary teams.
+                """,
             avatar: {
                 Circle()
                     .fill(.secondary)

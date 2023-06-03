@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Brenno on 03/06/23.
 //
@@ -95,9 +95,15 @@ struct GithubRepositoryItem_Previews: PreviewProvider {
 
     static var previews: some View {
         GithubRepositoryItem(
-            url: URL(string: "https://github.com/request-dl/request-dl")!,
+            url: URL.temporaryDirectory,
             title: "request-dl/request-dl",
-            description: "RequestDL is a Swift package designed to simplify the process of performing network requests. It provides a set of tools, including the RequestTask protocol, which supports different types of requests, including DataTask, DownloadTask, and UploadTask.",
+            description: """
+                RequestDL is a Swift package designed to simplify the process \
+                of performing network requests. It provides a set of tools, \
+                including the RequestTask protocol, which supports different \
+                types of requests, including DataTask, DownloadTask, and \
+                UploadTask.
+                """,
             isPublic: true,
             tags: {
                 GithubTagView("Swift") {
