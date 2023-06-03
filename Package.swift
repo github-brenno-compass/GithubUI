@@ -13,20 +13,12 @@ let package = Package(
             targets: ["GithubUI"]
         )
     ],
-    dependencies: [
-        .package(
-            url: "https://github.com/SwiftGen/SwiftGenPlugin",
-            from: "6.6.2"
-        )
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "GithubUI",
             dependencies: [],
-            resources: [.process("Resources")],
-            plugins: [
-                .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")
-            ]
+            resources: [.process("Resources")]
         ),
         .testTarget(
             name: "GithubUITests",
