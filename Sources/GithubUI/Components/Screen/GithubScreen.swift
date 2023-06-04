@@ -24,7 +24,9 @@ public struct GithubScreen<Content: View>: View {
             content
         }
         .navigationTitle(Text(title ?? ""))
+        #if !os(macOS) && !os(tvOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
         .navigationBarBackButtonHidden(true)
     }
 }

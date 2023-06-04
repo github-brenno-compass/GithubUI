@@ -18,11 +18,27 @@ extension ToolbarItemNavigationPlacement {
     var placement: ToolbarItemPlacement {
         switch self {
         case .leading:
+            #if os(macOS)
+            return .primaryAction
+            #elseif os(watchOS)
+            return .cancellationAction
+            #else
             return .navigationBarLeading
+            #endif
         case .center:
+            #if os(watchOS)
+            return .automatic
+            #else
             return .navigation
+            #endif
         case .trailing:
+            #if os(macOS)
+            return .secondaryAction
+            #elseif os(watchOS)
+            return .confirmationAction
+            #else
             return .navigationBarTrailing
+            #endif
         }
     }
 }
