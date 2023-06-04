@@ -11,12 +11,8 @@ public struct GithubUserItemPrimaryStyle: GithubUserItemStyle {
 
     public func makeLayout(_ configuration: Self.Configuration) -> Self.Layout {
         Layout()
-            .titleFont(.body.bold())
-            .descriptionFont(.caption)
-            .usernameFont(.callout)
+            .titleFont(.body)
             .titleColor(.primary)
-            .descriptionColor(.secondary)
-            .usernameColor(.secondary)
             .accessoryColor(.init(white: 0.75))
     }
 }
