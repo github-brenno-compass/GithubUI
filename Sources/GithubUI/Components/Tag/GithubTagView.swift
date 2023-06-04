@@ -14,7 +14,7 @@ public struct GithubTagView<Content: View>: View {
     private let content: Content
     private let title: String
 
-    init(
+    public init(
         _ title: String,
         @ViewBuilder content: () -> Content
     ) {
