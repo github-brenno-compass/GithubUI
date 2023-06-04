@@ -7,28 +7,19 @@
 
 import SwiftUI
 
-public struct GithubUserItem<Avatar: View, Tags: View>: View {
+public struct GithubUserItem<Avatar: View>: View {
 
     @Environment(\.githubUserItemStyle) var style
 
-    private let title: String
     private let username: String
-    private let description: String
     private let avatar: Avatar
-    private let tags: Tags
 
     public init(
-        title: String,
-        username: String,
-        description: String,
-        @ViewBuilder avatar: () -> Avatar,
-        @ViewBuilder tags: () -> Tags
+        _ username: String,
+        @ViewBuilder avatar: () -> Avatar
     ) {
-        self.title = title
         self.username = username
-        self.description = description
         self.avatar = avatar()
-        self.tags = tags()
     }
 
     public var body: some View {
@@ -37,30 +28,14 @@ public struct GithubUserItem<Avatar: View, Tags: View>: View {
         HStack(spacing: 16) {
             avatar
                 .scaledToFit()
-                .frame(width: 64, height: 64)
+                .frame(width: 44, height: 44)
                 .clipShape(Circle())
 
             HStack(spacing: .zero) {
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack(spacing: 8) {
-                        Text(title)
-                            .font(layout.titleFont)
-                            .foregroundColor(layout.titleColor)
-
-                        Text(username)
-                            .font(layout.usernameFont)
-                            .foregroundColor(layout.usernameColor)
-                    }
-
-                    Text(description)
-                        .font(layout.descriptionFont)
-                        .foregroundColor(layout.descriptionColor)
-
-                    HStack(spacing: 16) {
-                        tags
-                    }
-                }
-                .lineLimit(1)
+                Text(username)
+                    .font(layout.titleFont)
+                    .foregroundColor(layout.titleColor)
+                    .lineLimit(1)
 
                 Spacer()
             }
@@ -71,38 +46,21 @@ public struct GithubUserItem<Avatar: View, Tags: View>: View {
                 .frame(width: 16, height: 16)
                 .foregroundColor(layout.accessoryColor)
         }
-        .padding(16)
-        .overlay(
-            RoundedRectangle(cornerRadius: 8)
-                .strokeBorder(layout.descriptionColor, lineWidth: 1)
-        )
     }
 }
 
 struct GithubUserItem_Previews: PreviewProvider {
 
     static var previews: some View {
-        GithubUserItem(
-            title: "Brenno",
-            username: "brennobemoura",
-            description: """
-                Swift developer with a passion for technology and a focus on \
-                declarative programming, experience in challenging projects \
-                and multidisciplinary teams.
-                """,
-            avatar: {
+        List {
+            GithubUserItem("brennobemoura") {
                 Circle()
                     .fill(.secondary)
-            },
-            tags: {
-                GithubTagView("Compass UOL") {
-                    Image(systemName: "building.2")
-                }
-
-                GithubTagView("Brazil") {
-                    Image(systemName: "mappin.and.ellipse")
-                }
             }
-        )
+            GithubUserItem("brenno-compass") {
+                Circle()
+                    .fill(.secondary)
+            }
+        }
     }
 }
